@@ -22,3 +22,7 @@ if (temperature < 0) {
 }
 
 console.log("Now you're ready to go outside!");
+
+const whichSchool  = function (age) {
+  j
+}

@@ -1,36 +1,48 @@
-function calculateRectangleArea(length, width)
-{
-  if (length < 0 || width <0)
-  {
-    return undefined;
-  }
-  return length * width;
-}
-function calculateTriangleArea(base, height)
-{
-  if (base < 0 || height <0)
-  {
-    return undefined;
-  }
-  return base * height / 2;
-}
-function calculateCircleArea(radius)
-{
-  if (radius < 0)
-  {
-    return undefined;
-  }
-  return Math.PI * (radius * radius);
-}
+const organizeInstructors = function(instructors) {
+  let ios = [];
+  let web = [];
+  let blockchain = [];
+  let output = {};
 
-console.log(calculateRectangleArea(10, 5));     // should print 50
-console.log(calculateRectangleArea(1.5, 2.5));  // should print 3.75
-console.log(calculateRectangleArea(10, -5));    // should print undefined
+  for (i of instructors)
+  {
+    if (i.course == 'iOS')
+    {
+      ios.push(i.name);
+    }
+    else if (i.course == 'Web')
+    {
+      web.push(i.name);
+    }
+    else if (i.course == 'Blockchain')
+    {
+      blockchain.push(i.name);
+    }
+  }
+  if (ios.length > 0)
+  {
+    output['iOS'] = ios;
+  }
+  if (web.length > 0)
+  {
+    output['Web'] = web;
+  }
+  if (blockchain.length > 0)
+  {
+    output['Blockchain'] = blockchain;
+  }
+  return output;
+};
 
-console.log(calculateTriangleArea(10, 5)); // should print 25
-console.log(calculateTriangleArea(3, 2.5)); // should print 3.75
-console.log(calculateTriangleArea(10, -5)); // should print undefined
-
-console.log(calculateCircleArea(10)); // should print 314.159...
-console.log(calculateCircleArea(3.5)); // should print 38.484...
-console.log(calculateCircleArea(-1)); // should print undefined
+console.log(organizeInstructors([
+  {name: "Samuel", course: "iOS"},
+  {name: "Victoria", course: "Web"},
+  {name: "Karim", course: "Web"},
+  {name: "Donald", course: "Web"}
+]));
+console.log(organizeInstructors([
+  {name: "Brendan", course: "Blockchain"},
+  {name: "David", course: "Web"},
+  {name: "Martha", course: "iOS"},
+  {name: "Carlos", course: "Web"}
+]));
